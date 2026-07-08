@@ -1,5 +1,5 @@
 import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
+import { Platform } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { AnimatedIcon } from '@/components/animated-icon';
@@ -8,21 +8,25 @@ import { ThemedText } from '@/components/themed-text';
 import { ThemedView } from '@/components/themed-view';
 import { WebBadge } from '@/components/web-badge';
 import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
-import { View, Text, Pressable,  } from "react-native";
+import { View, Text, Pressable, StyleSheet  } from "react-native";
+import { useRouter } from "expo-router";
 
 
 export default function HomeScreen() {
+  const router = useRouter();
+
   return (
     <View style={styles.container}>
       <Text style={styles.smallText}>Welcome to</Text>
 
-      <Text style={styles.title}>KaiApp Events</Text>
+      <Text style={styles.title}>KimrApp Events</Text>
 
       <Text style={styles.description}>
         This is my first mobile app built with React Native and Expo.
+        You are doing amaizing
       </Text>
 
-      <Pressable style={styles.button}>
+      <Pressable style={styles.button} onPress={() => router.push("/agenda")}>
         <Text style={styles.buttonText}>View Agenda</Text>
       </Pressable>
     </View>
